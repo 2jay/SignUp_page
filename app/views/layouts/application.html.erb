@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>The Hive</title>
+<style>
+
+  body {background-color:#FFFFCC; text-align: center; border: 1px #B6B6B6 solid; margin: 0px auto 0px auto; position: relative; width: 960px; min-height: 600px; border-top: 10px}
+
+  h1   {color:white; font-family: 'Verdana'; font-size: 4em; text-decoration: block; background-color:rgba(0, 0, 0, .8); padding: 15px; font-size: 30px;}
+  h2   {color:rgb(0,0,0,.2); font-family: 'Times New Roman'; font-size: 2.4em; }
+  p    {color:black}
+</style>
+
+
+
+<div id="user_nav">
+  <% if @user %>
+    Logged in as <%= @user.email %>.
+    <%= link_to "Log out", 'sessions/new' %>
+  <% else %>
+ 
+  <% end %>
+</div>
+
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
+
+	
+<%= yield %>
+
+</div>
+<br>
+<br>
+<br>
+<div id="footer">
+<p align='bottom'>The Hive Hangout 2014<sup>©</sup></p>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<h1>Log in </h1>
+
+<%= form_tag sessions_path do %>
+<p>
+	Username or Email:</br>
+	<%= text_field_tag(:username_or_email) %>
+</p>
+<p>
+	Password:</br>
+	<%= password_field_tag :password %>
+</p>
+<p class="button"><%= submit_tag("Enter") %></p>
+
+<% end %>
+
+<br>
+<hr>
+<%= link_to 'New Registration', controller: 'users/new' %>

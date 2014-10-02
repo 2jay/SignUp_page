@@ -1,0 +1,30 @@
+	<h1>Sign Up</h1>
+
+	<br>
+
+	<%= form_for @user do |f| %>
+		<p>
+			Username:</br> <%= f.text_field :username%> </p>
+		<p>
+			Email:</br> <%= f.text_field :email%> </p>
+		<p>
+			Phone Number:</br> <%= f.telephone_field :phone_number%> </p>
+		<p>
+			Password:</br> <%= f.password_field :password%></p>
+		<p>
+			Password Confirmation:</br> <%= f.password_field :password_confirmation%> </p>
+		<p class="button"><%= f.submit :Signup %></p>
+	<% end %>
+	<% if @user.errors.any? %>
+		<div class="error_messages">
+			<h2>Form is invalid</h2>
+			<ul>
+				<% for message in @user.errors.full_messages %>
+					<li>* <%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+<br>
+<%= link_to 'Login', controller: 'sessions/new' %>
